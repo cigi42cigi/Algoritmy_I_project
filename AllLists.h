@@ -12,6 +12,7 @@ class AllLists{
         ~AllLists();
 
         List mergeLists();
+        size_t wholeSize(); 
 
     private:
         List* folder;

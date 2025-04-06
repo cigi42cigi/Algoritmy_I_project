@@ -12,7 +12,7 @@ class List{
         void printList();
         void increaseIndex();
         int getAtIndex();
-        int getSize();
+        size_t getSize();
         bool isEmpty();
 
 

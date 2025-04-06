@@ -5,7 +5,7 @@
 
 List::List(std::vector<int> inputData){
     this->data = inputData;
-    this->count = 0;
+    this->index = 0;
 }
 
 List::List(const std::string& filename){
@@ -18,6 +18,8 @@ List::List(const std::string& filename){
         int num = std::stoi(line);
         this->data.push_back(num);
     }
+
+    this->index = 0;
 }
 
 int List::getIndex(){
@@ -40,12 +42,12 @@ int List::getAtIndex(){
     return this->data[this->index];
 }
 
-int List::getSize(){
+size_t List::getSize(){
     return this->data.size();
 }
 
 bool List::isEmpty(){
-    if(this->index == this->data.size() - 1){
+    if(this->index >= this->data.size() - 1){
         return true;
     }
     return false;
