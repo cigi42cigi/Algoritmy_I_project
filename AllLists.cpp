@@ -1,5 +1,6 @@
 #include "AllLists.h"
 
+#include <limits>
 
 unsigned int AllLists::defaultCapacity = 100;
 
@@ -73,3 +74,5 @@ size_t AllLists::wholeSize(){
 List AllLists::getList(int index){
     return this->folder[index];
 }
+
+

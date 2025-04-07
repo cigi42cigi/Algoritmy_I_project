@@ -1,0 +1,3 @@
+/home/cigi/VSB/Algoritmy/projekt/build/CMakeFiles/MergedListProject.dir
+/home/cigi/VSB/Algoritmy/projekt/build/CMakeFiles/edit_cache.dir
+/home/cigi/VSB/Algoritmy/projekt/build/CMakeFiles/rebuild_cache.dir

@@ -2,8 +2,7 @@
 
 #include <vector>
 #include <string>
-#include <iostream>
-#include <fstream>
+
 
 class List{
     public:
@@ -18,6 +17,7 @@ class List{
         size_t getSize();
         bool isEmpty();
 
+        void testMerge(const std::vector<std::string>& files);
 
 
     private:

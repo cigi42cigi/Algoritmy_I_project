@@ -1,5 +1,9 @@
 #include "List.h"
 
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+
 
 List::List(std::vector<int> inputData){
     this->data = inputData;
@@ -49,8 +53,53 @@ size_t List::getSize(){
 }
 
 bool List::isEmpty(){
-    if(this->index >= this->data.size() - 1){
+    if(this->index > this->data.size() - 1){
         return true;
     }
     return false;
+}
+
+std::vector<int> readInt(const std::string& filename){
+    std::vector<int> data;
+    
+    std::ifstream file(filename, std::ios::in);
+    
+    std::string line;
+
+    while (std::getline(file, line)) {
+        
+        int num = std::stoi(line);
+        data.push_back(num);
+    }
+
+    return data;
+}
+
+
+void List::testMerge(const std::vector<std::string>& files){
+
+    std::vector<int> mergedData;
+
+    // Projdi všechny soubory
+    for (const std::string& filename : files) {
+        std::vector<int> tempData = readInt(filename);
+        mergedData.insert(mergedData.end(), tempData.begin(), tempData.end());
+    }
+
+    // Seřaď spojený vektor
+    std::sort(mergedData.begin(), mergedData.end());
+
+    // Tisk výsledku
+    std::cout << "\n" << "-----TEST-----\n";
+    for (int x : mergedData) {
+        std::cout << x << " ";
+    }
+    std::cout << "\n";
+
+    if(this->data == mergedData){
+        std::cout << "DATA SE SHODUJI\n";
+    }
+    else{
+        std::cout << "CHYBA\n";
+    }
 }

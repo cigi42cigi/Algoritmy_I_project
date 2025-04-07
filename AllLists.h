@@ -2,8 +2,6 @@
 
 #include "List.h"
 
-#include <limits>
-
 
 class AllLists{
     public:
@@ -12,7 +10,8 @@ class AllLists{
 
         List mergeLists();
         size_t wholeSize();
-        List getList(int index); 
+        List getList(int index);
+        
 
     private:
         List* folder;
