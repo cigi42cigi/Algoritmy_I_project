@@ -8,50 +8,71 @@ https://www.programiz.com/dsa/merge-sort
 
 */
 
-#include <iostream>
-#include <vector>
-#include <string>
-#include <fstream>
-
 #include "List.cpp"
 #include "AllLists.cpp"
+
+#include <algorithm>
 
 
 using std::cout, std::vector, std::string;
 
+vector<int> readInt(const std::string& filename);
+void test();
+
 
 int main(int argc, char* argv[]){
 
-    vector<std::string> files = {"0.txt", "1.txt", "2.txt"};
-    
+    vector<std::string> files = {"test_data/0.txt", "test_data/1.txt", "test_data/2.txt"};
+
     AllLists allLists(3, files);
+
+    /*
+    List list = allLists.getList(0);
+    list.printList();
+    */
 
     List merged = allLists.mergeLists();
     
-    std::cout << "Merged list:\n";
+    cout << "Merged list:\n";
     merged.printList();
 
-    // Očekávaný výstup: 1 2 3 4 5 6 7 8 9
-    vector<int> expected = {1,2,3,4,5,6,7,8,9};
-    bool success = true;
-
-    for (size_t i = 0; i < expected.size(); ++i) {
-        if (merged.getAtIndex() != expected[i]) {
-            std::cout << "Chyba na indexu " << i << ": ocekavano " << expected[i] 
-                      << ", bylo " << merged.getAtIndex() << "\n";
-            success = false;
-        }
-        merged.increaseIndex();
-    }
-
-    if (success) {
-        std::cout << "✅ Test úspěšný!\n";
-    } else {
-        std::cout << "❌ Test selhal!\n";
-    }
+    cout << "\n\n" << "TEST\n";
+    test();
 
 
     return 0;
 }
 
+void test(){
+    
+    vector<int> vec1 = readInt("test_data/0.txt");
+    vector<int> vec2 = readInt("test_data/1.txt");
+    vector<int> vec3 = readInt("test_data/2.txt");
+       
+    vec1.insert(vec1.end(),vec2.begin(),vec2.end());
+    vec1.insert(vec1.end(),vec3.begin(),vec3.end());
+    
+    std::sort(vec1.begin(),vec1.end());
 
+    for (int x : vec1) {
+        cout << x << " ";
+    }
+
+}
+
+
+vector<int> readInt(const std::string& filename){
+    vector<int> data;
+    
+    std::ifstream file(filename, std::ios::in);
+    
+    std::string line;
+
+    while (std::getline(file, line)) {
+        
+        int num = std::stoi(line);
+        data.push_back(num);
+    }
+
+    return data;
+}

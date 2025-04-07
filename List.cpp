@@ -1,7 +1,5 @@
 #include "List.h"
 
-#include <iostream>
-
 
 List::List(std::vector<int> inputData){
     this->data = inputData;
@@ -19,6 +17,10 @@ List::List(const std::string& filename){
         this->data.push_back(num);
     }
 
+    this->index = 0;
+}
+
+List::List(){
     this->index = 0;
 }
 

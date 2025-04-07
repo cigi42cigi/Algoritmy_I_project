@@ -1,18 +1,18 @@
 #pragma once
 
-#include <string>
-#include <vector>
-
 #include "List.h"
+
+#include <limits>
 
 
 class AllLists{
     public:
-        AllLists(int k, vector<std::string> filenames);
+        AllLists(int k, std::vector<std::string> filenames);
         ~AllLists();
 
         List mergeLists();
-        size_t wholeSize(); 
+        size_t wholeSize();
+        List getList(int index); 
 
     private:
         List* folder;

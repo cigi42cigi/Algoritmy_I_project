@@ -1,11 +1,9 @@
 #include "AllLists.h"
 
-#include <limits>
-
 
 unsigned int AllLists::defaultCapacity = 100;
 
-AllLists::AllLists(int k, vector<std::string> filenames){
+AllLists::AllLists(int k, std::vector<std::string> filenames){
     this->capacity = defaultCapacity;
     this->count = k;
     this->folder = new List[this->capacity];
@@ -69,4 +67,9 @@ size_t AllLists::wholeSize(){
         sum += this->folder[i].getSize();
     }
     return sum;
+}
+
+
+List AllLists::getList(int index){
+    return this->folder[index];
 }

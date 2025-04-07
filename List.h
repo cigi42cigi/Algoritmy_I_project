@@ -2,11 +2,14 @@
 
 #include <vector>
 #include <string>
+#include <iostream>
+#include <fstream>
 
 class List{
     public:
         List(std::vector<int> inputData);
         List(const std::string& filename);
+        List();
 
         int getIndex();
         void printList();
