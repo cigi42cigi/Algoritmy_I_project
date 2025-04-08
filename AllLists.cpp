@@ -1,6 +1,7 @@
 #include "AllLists.h"
 
 #include <limits>
+#include <algorithm>
 
 unsigned int AllLists::defaultCapacity = 100;
 
@@ -25,10 +26,10 @@ List AllLists::mergeLists(){
     std::vector<int> mergedList;
     mergedList.reserve(this->wholeSize());
     
-    int emptyLists = 0;
+    std::vector<bool> alreadyEmpty(this->count, false);
 
     for(size_t j = 0;j < this->wholeSize();j++){
-        if(emptyLists == this->count - 1){
+        if (std::count(alreadyEmpty.begin(), alreadyEmpty.end(), true) == this->count - 1) {
             break;
         }
         
@@ -36,13 +37,14 @@ List AllLists::mergeLists(){
         int nList = 0;
         
         for(size_t i = 0;i < this->count;i++){
-            if(this->folder[i].getAtIndex() < lowest){
-                
-                if(this->folder[i].isEmpty()){
-                    emptyLists++;
-                    continue;
+            if(this->folder[i].isEmpty()){
+                if(!alreadyEmpty[i]){
+                    alreadyEmpty[i] = true;
                 }
-                
+                continue;
+            }
+            
+            if(this->folder[i].getAtIndex() < lowest){                
                 lowest = this->folder[i].getAtIndex();
                 nList = i;
             }
@@ -52,8 +54,8 @@ List AllLists::mergeLists(){
         this->folder[nList].increaseIndex();    
     }
     
-    for(size_t i = 0;i < this->count;i++){
-        if(!this->folder[i].isEmpty()){ 
+    for(size_t i = 0;i < alreadyEmpty.size();i++){
+        if(alreadyEmpty[i]){ 
             std::vector<int> data = this->folder[i].getData();
             
             mergedList.insert(mergedList.end(),data.begin() + this->folder[i].getIndex(), data.end());
