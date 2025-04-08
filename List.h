@@ -3,10 +3,9 @@
 #include <vector>
 #include <string>
 
-
 class List{
     public:
-        List(std::vector<int> inputData);
+        List(const std::vector<int> inputData);
         List(const std::string& filename);
         List();
 
@@ -16,9 +15,9 @@ class List{
         int getAtIndex();
         size_t getSize();
         bool isEmpty();
+        std::vector<int> getData();
 
         void testMerge(const std::vector<std::string>& files);
-
 
     private:
         std::vector<int> data;

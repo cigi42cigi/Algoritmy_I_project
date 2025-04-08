@@ -16,7 +16,6 @@ https://www.programiz.com/dsa/merge-sort
 using std::cout, std::vector, std::string;
 
 
-
 int main(int argc, char* argv[]){
 
     vector<string> files;

@@ -4,14 +4,13 @@
 
 unsigned int AllLists::defaultCapacity = 100;
 
-AllLists::AllLists(int k, std::vector<std::string> filenames){
+AllLists::AllLists(int k,const std::vector<std::string> filenames){
     this->capacity = defaultCapacity;
     this->count = k;
     this->folder = new List[this->capacity];
 
     for(size_t i = 0;i < k; i++){
         List newList(filenames[i]);
-
         this->folder[i] = newList;
     }
 }
@@ -21,7 +20,6 @@ AllLists::~AllLists(){
     this->folder = nullptr;
 }
 
-
 List AllLists::mergeLists(){
 
     std::vector<int> mergedList;
@@ -30,12 +28,10 @@ List AllLists::mergeLists(){
     int emptyLists = 0;
 
     for(size_t j = 0;j < this->wholeSize();j++){
-        /*if(emptyLists == this->count - 1){
+        if(emptyLists == this->count - 1){
             break;
-        }*/
-        // PRIDANI PRO PRAZDNE LISTY??
-
-
+        }
+        
         int lowest = std::numeric_limits<int>::max();
         int nList = 0;
         
@@ -51,12 +47,18 @@ List AllLists::mergeLists(){
                 nList = i;
             }
         }        
-        
+
         mergedList.push_back(lowest);
-        this->folder[nList].increaseIndex();
-        
+        this->folder[nList].increaseIndex();    
     }
     
+    for(size_t i = 0;i < this->count;i++){
+        if(!this->folder[i].isEmpty()){ 
+            std::vector<int> data = this->folder[i].getData();
+            
+            mergedList.insert(mergedList.end(),data.begin() + this->folder[i].getIndex(), data.end());
+        }
+    }
     
     return List(mergedList);
 }
@@ -70,9 +72,6 @@ size_t AllLists::wholeSize(){
     return sum;
 }
 
-
-List AllLists::getList(int index){
+List AllLists::getList(const unsigned int index){
     return this->folder[index];
 }
-
-

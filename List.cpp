@@ -4,15 +4,13 @@
 #include <fstream>
 #include <algorithm>
 
-
-List::List(std::vector<int> inputData){
+List::List(const std::vector<int> inputData){
     this->data = inputData;
     this->index = 0;
 }
 
 List::List(const std::string& filename){
     std::ifstream file(filename, std::ios::in);
-    
     std::string line;
 
     while (std::getline(file, line)) {
@@ -61,9 +59,7 @@ bool List::isEmpty(){
 
 std::vector<int> readInt(const std::string& filename){
     std::vector<int> data;
-    
     std::ifstream file(filename, std::ios::in);
-    
     std::string line;
 
     while (std::getline(file, line)) {
@@ -80,16 +76,13 @@ void List::testMerge(const std::vector<std::string>& files){
 
     std::vector<int> mergedData;
 
-    // Projdi všechny soubory
     for (const std::string& filename : files) {
         std::vector<int> tempData = readInt(filename);
         mergedData.insert(mergedData.end(), tempData.begin(), tempData.end());
     }
 
-    // Seřaď spojený vektor
     std::sort(mergedData.begin(), mergedData.end());
 
-    // Tisk výsledku
     std::cout << "\n" << "-----TEST-----\n";
     for (int x : mergedData) {
         std::cout << x << " ";
@@ -102,4 +95,9 @@ void List::testMerge(const std::vector<std::string>& files){
     else{
         std::cout << "CHYBA\n";
     }
+}
+
+
+std::vector<int> List::getData(){
+    return this->data;
 }

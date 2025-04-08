@@ -2,16 +2,14 @@
 
 #include "List.h"
 
-
 class AllLists{
     public:
-        AllLists(int k, std::vector<std::string> filenames);
+        AllLists(int k,const std::vector<std::string> filenames);
         ~AllLists();
 
         List mergeLists();
         size_t wholeSize();
-        List getList(int index);
-        
+        List getList(const unsigned int index);
 
     private:
         List* folder;
@@ -19,5 +17,4 @@ class AllLists{
         unsigned int count;
 
         static unsigned int defaultCapacity;
-
 };
