@@ -57,6 +57,13 @@ bool List::isEmpty(){
     return false;
 }
 
+/**
+ * @brief Načte celá čísla ze souboru a vrátí je jako vektor.
+ * 
+ * @param filename Cesta k textovému souboru.
+ * @return std::vector<int> Vektor načtených čísel.
+ */
+
 std::vector<int> readInt(const std::string& filename){
     std::vector<int> data;
     std::ifstream file(filename, std::ios::in);

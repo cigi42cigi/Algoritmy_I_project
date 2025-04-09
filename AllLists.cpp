@@ -28,6 +28,7 @@ List AllLists::mergeLists(){
     
     std::vector<bool> alreadyEmpty(this->count, false);
 
+    // Hlavní slučovací cyklus – dokud nebudou všechny seznamy prázdné kromě jednoho.
     for(size_t j = 0;j < this->wholeSize();j++){
         if (std::count(alreadyEmpty.begin(), alreadyEmpty.end(), true) == this->count - 1) {
             break;
@@ -36,6 +37,7 @@ List AllLists::mergeLists(){
         int lowest = std::numeric_limits<int>::max();
         int nList = 0;
         
+        // Hledá nejmenší číslo napříč seznamy.
         for(size_t i = 0;i < this->count;i++){
             if(this->folder[i].isEmpty()){
                 if(!alreadyEmpty[i]){
@@ -54,6 +56,7 @@ List AllLists::mergeLists(){
         this->folder[nList].increaseIndex();    
     }
     
+    // Přidání posledního seznamu najednou.
     for(size_t i = 0;i < alreadyEmpty.size();i++){
         if(alreadyEmpty[i]){ 
             std::vector<int> data = this->folder[i].getData();
