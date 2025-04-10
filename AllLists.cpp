@@ -1,24 +1,28 @@
+/**
+ * @file AllLists.cpp
+ * @brief Implementace třídy AllLists pro správu kolekce seznamů.
+ * 
+ * Tento soubor obsahuje definice metod třídy `AllLists`, která spravuje více seznamů (List)
+ * a umožňuje zjištění celé velikosti seznamu, vrácení seznamu jako instanci List,
+ * dále obsahuje hlavní algoritmus tohoto projektu pro sloučení seznamů. 
+ * 
+ * @see AllLists
+ * @see List
+ */
+
 #include "AllLists.h"
 
 #include <limits>
 #include <algorithm>
 
-unsigned int AllLists::defaultCapacity = 100;
 
 AllLists::AllLists(int k,const std::vector<std::string> filenames){
-    this->capacity = defaultCapacity;
     this->count = k;
-    this->folder = new List[this->capacity];
 
-    for(size_t i = 0;i < k; i++){
+    for(int i = 0;i < k; i++){
         List newList(filenames[i]);
-        this->folder[i] = newList;
+        this->folder.push_back(newList);
     }
-}
-
-AllLists::~AllLists(){
-    delete[] this->folder;
-    this->folder = nullptr;
 }
 
 List AllLists::mergeLists(){
@@ -57,11 +61,10 @@ List AllLists::mergeLists(){
     }
     
     // Přidání posledního seznamu najednou.
-    for(size_t i = 0;i < alreadyEmpty.size();i++){
-        if(alreadyEmpty[i]){ 
+    for(size_t i = 0; i < this->count; i++) {
+        if (!this->folder[i].isEmpty()) {
             std::vector<int> data = this->folder[i].getData();
-            
-            mergedList.insert(mergedList.end(),data.begin() + this->folder[i].getIndex(), data.end());
+            mergedList.insert(mergedList.end(), data.begin() + this->folder[i].getIndex(), data.end());
         }
     }
     

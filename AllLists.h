@@ -1,3 +1,11 @@
+/**
+ * @file AllLists.h
+ * @brief Hlavičkový soubor obsahující deklaraci třídy AllLists pro správu více seznamů.
+ *
+ * @see List
+ * 
+ */
+
 #pragma once
 
 #include "List.h"
@@ -23,11 +31,6 @@ class AllLists{
         * @param filenames Vektor názvů souborů, ze kterých se načítají data.
         */
         AllLists(int k,const std::vector<std::string> filenames);
-
-        /**
-        * @brief Destruktor uvolní paměť alokovanou pro seznamy.
-        */
-        ~AllLists();
 
 
         /**
@@ -55,9 +58,7 @@ class AllLists{
         List getList(const unsigned int index);
 
     private:
-        List* folder;               /**< Ukazatel na pole seznamů. */
-        unsigned int capacity;      /**< Kapacita pole seznamů. */
+        std::vector<List> folder;               /**< Vektor instancí Listů */
         unsigned int count;         /**< Aktuální počet uložených seznamů. */
 
-        static unsigned int defaultCapacity;    /**< Výchozí kapacita pole. */
 };

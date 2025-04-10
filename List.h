@@ -1,3 +1,9 @@
+/**
+ * @file List.h
+ * @brief Hlavičkový soubor obsahující deklaraci třídy List pro správu seznamu.
+ *
+ */
+
 #pragma once
 
 #include <vector>
@@ -9,8 +15,7 @@
  *
  * Používá se k načtení čísel ze souboru nebo ze vstupního vektoru a poskytuje základní operace
  * jako je získání hodnoty na indexu, posun indexu, kontrola prázdnosti, velikost seznamu nebo výpis.
- * 
- * Další důležítá   
+ *    
  */
 
 class List{

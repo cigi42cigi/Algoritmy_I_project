@@ -1,3 +1,16 @@
+/**
+ * @file List.cpp
+ * @brief Implementace třídy List pro správu seznamu celých čísel.
+ * 
+ * Tento soubor obsahuje definice metod třídy `List`, která umožňuje práci s vektorem čísel.
+ * Obsahuje metody pro přístup k hodnotám na konkrétním indexu, posun indexu, kontrolu prázdnosti,
+ * získání velikosti seznamu, výpis seznamu a přístup k vektoru čísel jako takovému.
+ * Ještě obsahuje metodu pro test již sloučeného seznamu a jeho správnosti.
+ * 
+ * @see List
+ */
+
+
 #include "List.h"
 
 #include <iostream>
