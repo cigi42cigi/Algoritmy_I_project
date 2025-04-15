@@ -45,6 +45,12 @@ class List{
         int getIndex();
 
         /**
+        * @brief Posune index doprava a vrací číslo na nové pozici indexu.
+        * @return Hondnota ze seznamu na nové pozici.
+        */
+        int nextIndex();
+
+        /**
         * @brief Vytiskne všechna čísla v seznamu na standardní výstup.
         */
         void printList();

@@ -55,6 +55,11 @@ void List::increaseIndex(){
     this->index++;
 }
 
+int List::nextIndex(){
+    increaseIndex();
+    return getAtIndex();
+}
+
 int List::getAtIndex(){
     return this->data[this->index];
 }

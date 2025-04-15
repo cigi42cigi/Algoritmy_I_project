@@ -22,9 +22,9 @@ using std::cout, std::vector, std::string;
  * 
  * ## Algoritmus slévání seznamů
  * Algoritmus funguje následovně:
- * - Z každého seznamu se vezme aktuální hodnota (na daném indexu)
- * - Vybere se nejmenší z těchto hodnot a vloží se do výsledného seznamu
- * - Index v odpovídajícím seznamu se posune na další pozici
+ * - Z každého seznamu se načte číslo do vektoru aktulních čísel
+ * - Z vektoru aktuálních čísel se do finálního seznamu načte nejmenší číslo
+ * - Za načtené číslo se z požadovaného seznamu načte číslo z dalšího indexu
  * - Pokud už nějaký seznam nelze dál zpracovat, je označen jako "prázdný"
  * - Když už všechny seznamy kromě jednoho jsou prázdné, tak se zbytek jeho obsahu rovnou zkopíruje 
  *
