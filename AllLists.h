@@ -49,16 +49,8 @@ class AllLists{
         */
         size_t wholeSize();
 
-        /**
-        * @brief Vrátí konkrétní seznam podle indexu.
-        * 
-        * @param index Index požadovaného seznamu.
-        * @return List Kopie seznamu na daném indexu.
-        */
-        List getList(const unsigned int index);
-
     private:
         std::vector<List> folder;               /**< Vektor instancí Listů */
-        unsigned int count;         /**< Aktuální počet uložených seznamů. */
+        size_t count;         /**< Aktuální počet uložených seznamů. */
 
 };

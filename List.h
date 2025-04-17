@@ -40,9 +40,9 @@ class List{
 
         /**
         * @brief Vrací aktuální pozici indexu v seznamu.
-        * @return Celé číslo reprezentující pozici.
+        * @return Číslo typu size_t reprezentující pozici v seznamu.
         */
-        int getIndex();
+        size_t getIndex();
 
         /**
         * @brief Posune index doprava a vrací číslo na nové pozici indexu.
@@ -54,11 +54,6 @@ class List{
         * @brief Vytiskne všechna čísla v seznamu na standardní výstup.
         */
         void printList();
-
-        /**
-        * @brief Posune index o jedno místo doprava.
-        */
-        void increaseIndex();
 
         /**
         * @brief Vrací číslo na aktuální pozici indexu.
@@ -95,5 +90,5 @@ class List{
 
     private:
         std::vector<int> data;  /**< Vektor uchovávající načtená čísla. */
-        unsigned int index;     /**< Aktuální pozice v seznamu. */
+        size_t index;     /**< Aktuální pozice v seznamu. */
 };

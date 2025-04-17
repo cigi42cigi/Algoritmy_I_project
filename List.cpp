@@ -39,7 +39,7 @@ List::List(){
     this->index = 0;
 }
 
-int List::getIndex(){
+size_t List::getIndex(){
     return this->index;
 }
 
@@ -51,13 +51,8 @@ void List::printList(){
     std::cout << "\n";
 }
 
-void List::increaseIndex(){
-    this->index++;
-}
-
 int List::nextIndex(){
-    increaseIndex();
-    return getAtIndex();
+    return this->data[this->index++];
 }
 
 int List::getAtIndex(){

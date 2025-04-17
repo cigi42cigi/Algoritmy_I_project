@@ -21,17 +21,17 @@ using std::cout, std::vector, std::string;
  * 
  * 
  * ## Algoritmus slévání seznamů
- * Algoritmus funguje následovně:
- * - Z každého seznamu se načte číslo do vektoru aktulních čísel
- * - Z vektoru aktuálních čísel se do finálního seznamu načte nejmenší číslo
- * - Za načtené číslo se z požadovaného seznamu načte číslo z dalšího indexu
- * - Pokud už nějaký seznam nelze dál zpracovat, je označen jako "prázdný"
- * - Když už všechny seznamy kromě jednoho jsou prázdné, tak se zbytek jeho obsahu rovnou zkopíruje 
  *
- * Algoritmus je podobný jako merge fáze u MergeSortu, ale je funkční pro více než dva seznamy.
+ * Algoritmus funguje následovně:
+ * - Z každého vstupního seznamu se načte jeho první hodnota a vloží se do prioritní fronty(která jde od minima po maximum).
+ * - V každém kroku se z fronty vybere nejmenší hodnota (a její index seznamu).
+ * - Tato hodnota se přidá do výsledného seznamu.
+ * - Z téhož seznamu se načte další hodnota (pokud existuje) a vloží se opět do fronty.
+ * - Jakmile ve frontě zůstane pouze jeden prvek, přidá se do výsledku a zbytek příslušného seznamu se zkopíruje najednou.
+ *
+ * Je podobný „merge“ fázi algoritmu MergeSort, ale rozšířený na více než dva seznamy.
  * 
- * 
- * Kompilace:
+ * ## Kompilace:
  * ```
  * mkdir build && cd build 
  * cmake ..
@@ -47,6 +47,7 @@ using std::cout, std::vector, std::string;
  * @par Použité zdroje:
  * - https://www.programiz.com/dsa/merge-sort
  * - https://www.doxygen.nl/manual/index.html
+ * - https://en.cppreference.com/w/cpp/container/priority_queue
  * 
  */
 
