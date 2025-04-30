@@ -48,6 +48,9 @@ using std::cout, std::vector, std::string;
  * - https://www.programiz.com/dsa/merge-sort
  * - https://www.doxygen.nl/manual/index.html
  * - https://en.cppreference.com/w/cpp/container/priority_queue
+ * - https://oxeltech.de/the-tool-we-use-for-better-code-documentation-doxygen/
+ * - https://stackoverflow.com/questions/51667/best-tips-for-documenting-code-using-doxygen
+ * - https://opensource.com/sites/default/files/2022-05/OSDC_cheatsheet-doxygen-2022.5.30.pdf
  * 
  */
 
